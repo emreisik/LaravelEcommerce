@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/urun/{isim}/{id?}', function($urunadi, $id=0) {
+    return "Ürün Adı: $id $urunadi";
+})->name('urun_detay');
+
+Route::get('/kampanya', function () {
+    return redirect()->route('urun_detay', ['id'=>5 ,'isim'=>'elma' ]);
+});
+
